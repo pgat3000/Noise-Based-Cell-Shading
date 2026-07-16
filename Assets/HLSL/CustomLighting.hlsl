@@ -8,10 +8,14 @@ void MainLight_float(float3 WorldPos, out float3 Direction, out float3 Color, ou
     Color = 1.0f;
     Attenuation = 1.0f;
 #else
-    Light mainLight = GetMainLight();
+    float4 shadowCoord = TransformWorldToShadowCoord(WorldPos);
+    Light mainLight = GetMainLight(shadowCoord);
+   
     Direction = mainLight.direction;
     Color = mainLight.color;
-    Attenuation = mainLight.distanceAttenuation;
+    float DistanceAtten = mainLight.distanceAttenuation;
+    float ShadowAtten = mainLight.shadowAttenuation;
+    Attenuation = DistanceAtten * ShadowAtten;
 #endif
 }
 
@@ -29,7 +33,8 @@ void MainLight_half(half3 WorldPos, out half3 Direction, out half3 Color, out ha
 #endif
 }
 
-void AdditionalLight_float(float3 WorldPos, int lightID, out float3 Direction, out float3 Color, out float Attenuation)
+void AdditionalLight_float(float3 WorldPos, int lightID, out float3 Direction, out float3 Color, out
+float Attenuation )
 {
     Direction = normalize(float3(1.0f, 1.0f, 0.0f));
     Color = float3(0.0f, 0.0f, 0.0f);
@@ -42,7 +47,9 @@ void AdditionalLight_float(float3 WorldPos, int lightID, out float3 Direction, o
         Light light = GetAdditionalLight(lightID, WorldPos);
         Direction = light.direction;
         Color = light.color;
-        Attenuation = light.distanceAttenuation;
+        float DistanceAtten = light.distanceAttenuation;
+        float ShadowAtten = light.shadowAttenuation;
+        Attenuation = DistanceAtten * ShadowAtten;
     }
 #endif
 }

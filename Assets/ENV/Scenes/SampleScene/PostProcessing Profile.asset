@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2910836988421939599
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 1
+  skipIterations:
+    m_OverrideState: 0
+    m_Value: 1
+  threshold:
+    m_OverrideState: 1
+    m_Value: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.2
+  scatter:
+    m_OverrideState: 1
+    m_Value: 0.831
+  clamp:
+    m_OverrideState: 0
+    m_Value: 65472
+  tint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  highQualityFiltering:
+    m_OverrideState: 1
+    m_Value: 0
+  downscale:
+    m_OverrideState: 0
+    m_Value: 0
+  maxIterations:
+    m_OverrideState: 0
+    m_Value: 6
+  dirtTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+    dimension: 1
+  dirtIntensity:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-2155673960537504268
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -12,13 +59,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
   m_Name: ShadowsMidtonesHighlights
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.85775393, z: 0.49766576, w: 0}
+    m_Value: {x: 1, y: 0.917897, z: 0.7677673, w: -0.10166046}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.693071, y: 0.75970185, z: 1, w: 0}
+    m_Value: {x: 0.99541366, y: 1, z: 0.9692656, w: -0.44730604}
   highlights:
     m_OverrideState: 1
     m_Value: {x: 0.63057864, y: 0.9636457, z: 1, w: 0.0000000017638608}
@@ -49,6 +96,7 @@ MonoBehaviour:
   components:
   - {fileID: -2155673960537504268}
   - {fileID: 6187757556880048014}
+  - {fileID: -2910836988421939599}
 --- !u!114 &6187757556880048014
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -64,13 +112,13 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: -0.73
   contrast:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: -4.1
   colorFilter:
     m_OverrideState: 0
-    m_Value: {r: 0.20799215, g: 0.7735849, b: 0.3671897, a: 1}
+    m_Value: {r: 0.3808821, g: 0.058072258, b: 0.8207547, a: 1}
   hueShift:
     m_OverrideState: 0
     m_Value: 0
